@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/smithtimmytim/bd-27/compare/v1.0.0...v1.1.0) (2022-09-05)
+
+
+### Features
+
+* welcome new verified users ([#1](https://github.com/smithtimmytim/bd-27/issues/1)) ([21a107c](https://github.com/smithtimmytim/bd-27/commit/21a107cfee74881b1824a3715c0d937cf9ddbde4))
+
 # 1.0.0 (2022-09-05)
 
 
