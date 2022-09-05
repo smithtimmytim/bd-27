@@ -11,7 +11,8 @@ const { token } = process.env;
 const discord = new Client({
   intents: [
     GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMembers
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildEmojisAndStickers
   ],
   partials: [
     Partials.GuildMember
