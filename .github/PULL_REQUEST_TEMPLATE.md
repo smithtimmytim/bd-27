@@ -1,5 +1,3 @@
-# ⚠️⚠️⚠️ This is an automated Pull Request ⚠️⚠️⚠️
-
 ## Summary
 
 <!-- Diff summary - START -->
