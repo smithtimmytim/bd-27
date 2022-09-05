@@ -8,7 +8,7 @@ const fs = require( 'fs' );
 require( 'dotenv' )
   .config();
 
-const { token } = process.env;
+const { DISCORD_BOT_TOKEN } = process.env;
 const discord = new Client( {
   intents: [
     GatewayIntentBits.Guilds,
@@ -39,4 +39,4 @@ for ( const folder of functionFolders ) {
 
 discord.handleEvents();
 discord.handleCommands();
-discord.login( token );
+discord.login( DISCORD_BOT_TOKEN );

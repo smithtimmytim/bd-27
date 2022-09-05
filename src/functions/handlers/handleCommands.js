@@ -4,7 +4,7 @@ const fs = require( 'fs' );
 require( 'dotenv' )
   .config();
 
-const { token, BOT_ID, SERVER_ID } = process.env;
+const { DISCORD_BOT_TOKEN, BOT_ID, SERVER_ID } = process.env;
 
 module.exports = ( discord, prefix ) => {
   discord.handleCommands = async() => {
@@ -30,7 +30,7 @@ module.exports = ( discord, prefix ) => {
     const rest = new REST( {
       version: '10'
     } )
-      .setToken( token );
+      .setToken( DISCORD_BOT_TOKEN );
 
     try {
       console.log( "Refreshing server (/) commands." );
