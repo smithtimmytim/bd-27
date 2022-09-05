@@ -23,7 +23,7 @@ jobs:
           node-version: 16
       
       - name: Install NPM Dependencies
-        run: npm install
+        run: npm ci
       
       - name: Release
         env:
