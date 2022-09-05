@@ -1,0 +1,22 @@
+name: "Lint JS"
+
+on: [pull_request]
+
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+
+    - name: Setting Up Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - name: Install NPM Dependencies
+      run: npm ci
+
+    - name: Lint JS
+      run: npm run lint
