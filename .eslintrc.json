@@ -12,6 +12,31 @@
     "sourceType": "module"
   },
   "rules": {
+    "array-element-newline": [
+      "error",
+      "always"
+    ],
+    "arrow-body-style": [
+      "error",
+      "as-needed",
+      {
+        "requireReturnForObjectLiteral": true
+      }
+    ],
+    "arrow-parens": "error",
+    "curly": [
+      "error",
+      "multi"
+    ],
+    "default-case": "error",
+    "default-case-last": "error",
+    "dot-notation": "error",
+    "function-call-argument-newline": [ "error", "never" ],
+    "function-paren-newline": [
+      "error",
+      "multiline"
+    ],
+    "object-property-newline": "error",
     "no-trailing-spaces": "error",
     "no-multiple-empty-lines": "error",
     "comma-dangle": "error",
@@ -24,6 +49,55 @@
       "expression", {
         "allowArrowFunctions": true
       }
-    ]
+    ],
+    "func-call-spacing": [
+      "error",
+      "never"
+    ],
+    "no-useless-escape": 0,
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "array-bracket-spacing": [
+      "error",
+      "always"
+    ],
+    "space-in-parens": [
+      "error",
+      "always"
+    ],
+    "array-bracket-newline": [
+      "error",
+      "always"
+    ],
+    "object-curly-newline": [
+      "error",
+      {
+        "ObjectExpression": "always",
+        "ObjectPattern": {
+          "multiline": true
+        },
+        "ImportDeclaration": "never",
+        "ExportDeclaration": {
+          "multiline": true,
+          "minProperties": 3
+        }
+      }
+    ],
+    "newline-per-chained-call": [
+      "error",
+      {
+        "ignoreChainWithDepth": 2
+      }
+    ],
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "directive", "next": "*"
+      },
+      { "blankLine": "any",    "prev": "directive", "next": "directive"
+      }
+    ],
+    "rest-spread-spacing": "error"
   }
 }
