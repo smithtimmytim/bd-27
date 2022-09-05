@@ -3,12 +3,20 @@
  *
  */
 
-const { Client, Collection, GatewayIntentBits } = require('discord.js');
+const { Client, Partials, Collection, GatewayIntentBits } = require('discord.js');
 const fs = require('fs');
 require('dotenv').config();
 
 const { token } = process.env;
-const discord = new Client({ intents: GatewayIntentBits.Guilds });
+const discord = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers
+  ],
+  partials: [
+    Partials.GuildMember
+  ]
+});
 
 discord.commands = new Collection();
 discord.commandArray = [];
