@@ -24,6 +24,7 @@
       "expression", {
         "allowArrowFunctions": true
       }
-    ]
+    ],
+    "no-useless-escape": 0
   }
 }
