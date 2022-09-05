@@ -16,9 +16,7 @@ jobs:
         node-version: 16
 
     - name: Install NPM Dependencies
-      run: npm install
+      run: npm ci
 
     - name: Lint JS
-      run: npm run lint:js
-
-   
+      run: npm run lint
