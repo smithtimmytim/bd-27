@@ -3,7 +3,8 @@
  * - event fired when an emoji is created
  */
 
-require( 'dotenv' ).config();
+require( 'dotenv' )
+  .config();
 
 const { CHANNEL_WELCOME_ID, CHANNEL_ADMIN_LOGS_ID } = process.env;
 const { resolveColor, inlineCode } = require( 'discord.js' );
@@ -39,9 +40,17 @@ const notify = async( emoji, discord ) => {
     timestamp: new Date().toISOString()
   };
 
-  adminLog.send( { embeds: [ embed ] } );
+  adminLog.send( {
+    embeds: [
+      embed
+    ]
+  } );
 
-  channel.send( { embeds: [ embed ] } ).then( ( sentMessage ) => {
+  channel .send( {
+    embeds: [
+      embed
+    ]
+  } ).then( ( sentMessage ) => {
     sentMessage.react( emoji.id );
   } );
 }
