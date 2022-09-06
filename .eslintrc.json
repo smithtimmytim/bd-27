@@ -98,6 +98,10 @@
       { "blankLine": "any",    "prev": "directive", "next": "directive"
       }
     ],
-    "rest-spread-spacing": "error"
+    "rest-spread-spacing": "error",
+    "quotes": [
+      "error",
+      "single"
+    ]
   }
 }

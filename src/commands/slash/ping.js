@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require( 'discord.js' );
+import { SlashCommandBuilder } from 'discord.js';
 
 // Command Config
 const config = {
@@ -7,7 +7,7 @@ const config = {
 }
 
 // Register Command
-module.exports = {
+export default {
   data: new SlashCommandBuilder()
     .setName( config.name )
     .setDescription( config.description ),

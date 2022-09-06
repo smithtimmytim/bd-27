@@ -1,29 +1,39 @@
-const fs = require( 'fs' );
+/**
+ * Event Handler
+ * - listens for and runs correct callback function
+ */
 
-module.exports = ( discord, prefix ) => {
-  discord.handleEvents = async () => {
-    const eventsFolders = fs.readdirSync( './src/events' );
+import fs from 'fs';
+import { botLog } from '../../library/utils.js';
 
-    for ( const folder of eventsFolders ) {
-      const eventFiles = fs.readdirSync( `./src/events/${folder}` )
-        .filter( ( file ) => file.endsWith( prefix ) );
+export default async ( discord ) => {
+  const eventsFolders = fs.readdirSync( './src/events' );
 
-      switch ( folder ) {
-      case "discord":
-        for ( const file of eventFiles ) {
-          const event = require( `../../events/${folder}/${file}` );
-          if ( event.once )
-            discord.once( event.name, ( ...args ) =>
-              event.execute( ...args, discord ) );
-          else
-            discord.on( event.name, ( ...args ) =>
-              event.execute( ...args, discord ) );
-        }
-        break;
+  botLog( 'Listening for events' );
 
-      default:
-        break;
+  for await ( const folder of eventsFolders ) {
+    const eventFiles = fs.readdirSync( `./src/events/${folder}` );
+
+    switch ( folder ) {
+    case 'discord':
+
+      for await ( const file of eventFiles ) {
+        const event = await import( `../../events/${folder}/${file}` );
+
+        if ( event.default.once )
+          discord.once( event.default.name, ( ...args ) => {
+            event.default.execute( ...args, discord );
+          } );
+        else
+          discord.on( event.default.name, ( ...args ) => {
+            event.default.execute( ...args, discord );
+          } );
+
       }
+      break;
+
+    default:
+      break;
     }
-  };
-};
+  }
+}
