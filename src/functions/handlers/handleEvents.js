@@ -9,13 +9,13 @@ import { botLog } from '../../library/utils.js';
 export default async ( discord ) => {
   const eventsFolders = fs.readdirSync( './src/events' );
 
-  botLog( `Listening for events` );
+  botLog( 'Listening for events' );
 
   for await ( const folder of eventsFolders ) {
     const eventFiles = fs.readdirSync( `./src/events/${folder}` );
 
     switch ( folder ) {
-    case "discord":
+    case 'discord':
 
       for await ( const file of eventFiles ) {
         const event = await import( `../../events/${folder}/${file}` );
