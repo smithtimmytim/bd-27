@@ -27,8 +27,7 @@ export default {
       ],
       status: 'online'
     } );
-    botLog( 'Presence set' );
 
-    botLog( `Ready! ${discord.user.tag} is logged in and online` );
+    botLog( `Event: ready ${discord.user.tag} is logged in and online` );
   }
 }
