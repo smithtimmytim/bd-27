@@ -15,10 +15,13 @@ const discord = new Client( {
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
     GatewayIntentBits.GuildEmojisAndStickers
   ],
   partials: [
-    Partials.GuildMember
+    Partials.GuildMember,
+    Partials.Message
   ]
 } );
 

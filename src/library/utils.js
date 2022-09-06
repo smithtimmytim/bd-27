@@ -53,3 +53,42 @@ export const getRandomCatEmoji = () => {
   const randomCat = getRandomNum( catEmoji.length );
   return catEmoji[randomCat];
 }
+
+/**
+ * Normalize Content
+ *
+ * @param {object} msg the message
+ * @returns normalized content
+ */
+export const normalizeMsgContent = ( msg ) => msg.content.toLowerCase().trim();
+
+/**
+ * Message Includes Exact Word
+ *
+ * @param {object} message the message
+ * @param {string} word the word to find
+ * @returns {boolean}
+ */
+export const messageIncludesWord = ( message, word ) =>
+  normalizeMsgContent( message ).includes( word );
+
+/**
+ * Message Includes Words
+ *
+ * @param {object} message the message
+ * @param {Array} wordsArray the array of words to find
+ * @returns {boolean} the result
+ */
+export const messageIncludesWords = ( message, wordsArray ) => {
+
+  let wordMatched = false;
+
+  wordsArray.forEach( ( word ) => {
+    if ( !wordMatched && messageIncludesWord( message, word ) )
+      wordMatched = true;
+
+  } );
+
+  return wordMatched;
+};
+

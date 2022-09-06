@@ -9,7 +9,7 @@ import { botLog } from '../../library/utils.js';
 export default async ( discord ) => {
   const eventsFolders = fs.readdirSync( './src/events' );
 
-  botLog( 'Listening for events' );
+  botLog( 'Events: Listening...' );
 
   for await ( const folder of eventsFolders ) {
     const eventFiles = fs.readdirSync( `./src/events/${folder}` );
