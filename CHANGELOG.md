@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/smithtimmytim/bd-27/compare/v1.1.0...v1.2.0) (2022-09-06)
+
+
+### Features
+
+* add cat command ([#28](https://github.com/smithtimmytim/bd-27/issues/28)) ([097b893](https://github.com/smithtimmytim/bd-27/commit/097b893aecdd4b5ecb89f8a100f16fd35073b5d8))
+* add notification when new emoji is created ([#16](https://github.com/smithtimmytim/bd-27/issues/16)) ([b33af8c](https://github.com/smithtimmytim/bd-27/commit/b33af8cf6276ac1436bc4b5cfc06e0f79c3391ff))
+* add server command ([#27](https://github.com/smithtimmytim/bd-27/issues/27)) ([9067d81](https://github.com/smithtimmytim/bd-27/commit/9067d81101b882c71cb3521e09b05907e1a061e6))
+
 # [1.1.0](https://github.com/smithtimmytim/bd-27/compare/v1.0.0...v1.1.0) (2022-09-05)
 
 
