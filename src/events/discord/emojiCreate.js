@@ -3,11 +3,12 @@
  * - event fired when an emoji is created
  */
 
-require( 'dotenv' )
-  .config();
+import { resolveColor, inlineCode } from  'discord.js';
+import { config } from 'dotenv';
+
+config();
 
 const { CHANNEL_WELCOME_ID, CHANNEL_ADMIN_LOGS_ID } = process.env;
-const { resolveColor, inlineCode } = require( 'discord.js' );
 
 /**
  * Send a notification to the general chat and admin log
@@ -46,7 +47,7 @@ const notify = async( emoji, discord ) => {
     ]
   } );
 
-  channel .send( {
+  channel.send( {
     embeds: [
       embed
     ]
@@ -55,7 +56,7 @@ const notify = async( emoji, discord ) => {
   } );
 }
 
-module.exports = {
+export default {
   name: 'emojiCreate',
 
   async execute( emoji, discord ) {

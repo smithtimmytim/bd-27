@@ -1,46 +1,42 @@
-const { REST } = require( '@discordjs/rest' );
-const { Routes } = require( 'discord-api-types/v9' );
-const fs = require( 'fs' );
-require( 'dotenv' )
-  .config();
+import { REST } from '@discordjs/rest';
+import { Routes } from 'discord-api-types/v9';
+import fs from 'fs';
+import { config } from 'dotenv';
+import { botLog } from '../../library/utils.js';
+
+config();
 
 const { DISCORD_BOT_TOKEN, BOT_ID, SERVER_ID } = process.env;
 
-module.exports = ( discord, prefix ) => {
-  discord.handleCommands = async() => {
-    const { commands, commandArray } = discord;
-    const commandFolders = fs.readdirSync( './src/commands' );
+export default async ( discord ) => {
+  const { commands, commandArray } = discord;
+  const commandFolders = fs.readdirSync( './src/commands' );
 
-    for ( const folder of commandFolders ) {
-      const commandFiles = fs
-        .readdirSync( `./src/commands/${folder}` )
-        .filter( ( file ) => file.endsWith( prefix ) );
+  for await ( const folder of commandFolders ) {
+    const commandFiles = fs.readdirSync( `./src/commands/${folder}` );
 
-      for ( const file of commandFiles ) {
-        const command = require( `../../commands/${folder}/${file}` );
-        commands.set( command.data.name, command );
-        commandArray.push( command.data.toJSON() );
-        console.log( `Command: ${command.data.name} has passed through handler` );
-      }
+    for await ( const file of commandFiles ) {
+      const command = await import( `../../commands/${folder}/${file}` );
+
+      commands.set( command.default.data.name, command.default );
+      commandArray.push( command.default.data.toJSON() );
+      botLog( `Command: ${command.default.data.name} has passed through handler` );
     }
+  }
 
-    const botID = BOT_ID;
-    const serverID = SERVER_ID;
+  const rest = new REST( {
+    version: '10'
+  } )
+    .setToken( DISCORD_BOT_TOKEN );
 
-    const rest = new REST( {
-      version: '10'
-    } )
-      .setToken( DISCORD_BOT_TOKEN );
+  try {
+    botLog( 'Refreshing server (/) commands.' );
 
-    try {
-      console.log( "Refreshing server (/) commands." );
+    await rest.put( Routes.applicationGuildCommands( BOT_ID, SERVER_ID ), {
+      body: commandArray
+    } );
 
-      await rest.put( Routes.applicationGuildCommands( botID, serverID ), {
-        body: commandArray
-      } );
-
-    } catch ( error ) {
-      console.error( error );
-    }
+  } catch ( error ) {
+    console.error( error );
   }
 }

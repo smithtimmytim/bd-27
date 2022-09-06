@@ -4,6 +4,7 @@
   "description": "A discord bot by Timothy B. Smith",
   "main": "./src/bot.js",
   "private": true,
+  "type": "module",
   "scripts": {
     "prepare": "husky install",
     "dev": "nodemon ./src/bot.js",

@@ -1,7 +1,12 @@
-require( 'dotenv' )
-  .config();
+/**
+ * Guild Member Update Event
+ *
+ */
 
-const { resolveColor } = require( 'discord.js' );
+import { resolveColor } from 'discord.js';
+import { config } from 'dotenv';
+config();
+
 
 const { ROLE_VERIFIED_ID, ROLE_WELCOME_ID, CHANNEL_WELCOME_ID, CHANNEL_ADMIN_LOGS_ID } = process.env;
 
@@ -53,7 +58,7 @@ const handleAddVerifiedRole = ( newMember, discord ) => {
   } );
 }
 
-module.exports = {
+export default {
   name: 'guildMemberUpdate',
 
   async execute( oldMember, newMember, discord ) {
