@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/smithtimmytim/bd-27/compare/v1.2.0...v1.3.0) (2022-09-06)
+
+
+### Features
+
+* add reactions to certain message strings ([#31](https://github.com/smithtimmytim/bd-27/issues/31)) ([999f25f](https://github.com/smithtimmytim/bd-27/commit/999f25f8e97f1319f47e341e0701cd2fe8d9fb54))
+
 # [1.2.0](https://github.com/smithtimmytim/bd-27/compare/v1.1.0...v1.2.0) (2022-09-06)
 
 
