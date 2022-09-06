@@ -35,8 +35,6 @@ export const makeApiCall = async ( apiEndpoint ) => {
   try {
     const { statusCode, body } = await request( apiEndpoint );
 
-    console.log( 'response received', statusCode )
-
     if ( !statusCode === 200 ) return;
 
     const data = await body.json();
