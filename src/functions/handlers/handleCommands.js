@@ -30,7 +30,7 @@ export default async ( discord ) => {
     .setToken( DISCORD_BOT_TOKEN );
 
   try {
-    botLog( 'Refreshing server (/) commands.' );
+    botLog( 'Commands: Refreshing server (/) commands.' );
 
     await rest.put( Routes.applicationGuildCommands( BOT_ID, SERVER_ID ), {
       body: commandArray
